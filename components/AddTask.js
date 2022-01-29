@@ -5,15 +5,13 @@ import styles from './Styles';
 
 const AddTask = (props) => {
     return (
-        <View style={styles.addTask}>
             <TextInput
-                style={styles.input}
+                style={styles.textInput}
                 placeholder="Add a task"
                 onChangeText={props.changeTextHandler}
                 value={props.text}
                 onSubmitEditing={props.addTask}
-            />
-        </View>)
+            />)
 }
 
 export default AddTask;

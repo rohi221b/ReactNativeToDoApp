@@ -7,14 +7,21 @@ import {
   FlatList,
   Button,
   TextInput,
+  TouchableOpacity
 } from "react-native";
 import AddTask from './components/AddTask';
 
+const Separator = () => {
+  return <View style={styles.separator} />;
+}
 class TodoList extends Component {
   state = {
     tasks: [],
     text: "",
   }
+
+
+
   changeTextHandler = (text) => {
     this.setState({ text: text });
   };
@@ -49,35 +56,34 @@ class TodoList extends Component {
         <Text style={styles.listItem}>
           {item.text}
         </Text>
-        <Button title="X" onPress={() => this.deleteTask(index)} />
+        <Button title="X" color="#7f7f7f" onPress={() => this.deleteTask(index)} />
       </View>
-      <View style={styles.hr} />
+      <Separator/>
     </View>;
 
   render() {
     return (
       <View style={[styles.container, { paddingBottom: 30 }]}>
+        <Text style={styles.header}>AU Todo List</Text>
+        <Text>{this.state.tasks.length} more to go</Text>
         <FlatList
           style={styles.list}
           data={this.state.tasks}
           renderItem={this.renderItem}
           extraData={this.state}
-        // onPress={() => {refresh : !refresh}}
         />
-        <Text>{this.state.tasks.length}</Text>
         <AddTask changeTextHandler={this.changeTextHandler} addTask={this.addTask} text={this.state.text} />
-        {/* <TextInput
-          style={styles.textInput}
-          onChangeText={this.changeTextHandler}
-          onSubmitEditing={this.addTask}
-          value={this.state.text}
-          placeholder="Add Task"
-        /> */}
-        <Button title="Reset"
-          onPress={() => this.setState({
-            tasks: [],
-            text: "",
-          })}></Button>
+        <TouchableOpacity title="Reset"
+          style={styles.reset}
+          onPress={
+            () => this.setState(
+              {
+                tasks: [],
+                text: "",
+              }
+            )}>
+              <Text style={styles.text}>Reset</Text>
+            </TouchableOpacity>
       </View>
     );
   }

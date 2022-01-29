@@ -6,7 +6,13 @@ export default StyleSheet.create({
       justifyContent: "center",
       alignItems: "center",
       padding: 10,
-      paddingTop: 20
+      paddingTop: 20,
+      marginTop: 20,
+     
+    },
+    text: {
+      textAlign: "center",
+      color: "#fff"    
     },
     list: {
       width: "100%"
@@ -21,15 +27,31 @@ export default StyleSheet.create({
       alignItems: "center",
       justifyContent: "space-between"
     },
-    hr: {
-      height: 1,
-      backgroundColor: "gray"
+    separator: {
+      marginVertical: 8,
+      borderBottomColor: '#737373',
+      borderBottomWidth: StyleSheet.hairlineWidth,
     },
     textInput: {
       height: 40,
-      paddingRight: 10,
+      padding: 10,
       paddingLeft: 10,
       borderColor: "gray",
+      borderWidth: 1,
+      marginBottom: 10,
+      width: "100%"
+    },
+    header: {
+      fontSize: 30,
+      fontWeight: "bold",
+      marginBottom: 10
+    },
+    reset: {
+      backgroundColor: "#7f7f7f",
+      color: "white",
+      padding: 10,
+      paddingLeft: 20,
+      paddingRight: 20,
       width: "100%"
     }
   })
