@@ -3,20 +3,17 @@ import { Text, View, TextInput } from "react-native";
 import styles from './Styles';
 
 
-class AddTask extends Component {
-    state = { task: "" };
-    render() {
-        return (
+const AddTask = (props) => {
+    return (
+        <View style={styles.addTask}>
             <TextInput
-                style={styles.textInput}
-                {...this.props}
-                // onChangeText={(text)=>this.props.changeTextHandler}
-                // onSubmitEditing={this.props.addTask}
-                // value={this.props.state.text}
-                placeholder="Add Task"
+                style={styles.input}
+                placeholder="Add a task"
+                onChangeText={props.changeTextHandler}
+                value={props.text}
+                onSubmitEditing={props.addTask}
             />
-        );
-    }
+        </View>)
 }
 
 export default AddTask;

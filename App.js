@@ -65,13 +65,14 @@ class TodoList extends Component {
         // onPress={() => {refresh : !refresh}}
         />
         <Text>{this.state.tasks.length}</Text>
-        <TextInput
+        <AddTask changeTextHandler={this.changeTextHandler} addTask={this.addTask} text={this.state.text} />
+        {/* <TextInput
           style={styles.textInput}
           onChangeText={this.changeTextHandler}
           onSubmitEditing={this.addTask}
           value={this.state.text}
           placeholder="Add Task"
-        />
+        /> */}
         <Button title="Reset"
           onPress={() => this.setState({
             tasks: [],
